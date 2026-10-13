@@ -1,5 +1,9 @@
 node_modules/
+# Secrets: every env file except the example
 .env
+.env.*
+!.env.example
+# Local SQLite database and raw API responses (contain customer data)
 data/
 samples/
 *.log

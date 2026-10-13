@@ -1,0 +1,30 @@
+# Deploy on a VPS with a FIXED outgoing IP (the Jewely API filters by IP: "IP not allowed").
+# Caddy provides HTTPS automatically for PUBLIC_URL.
+services:
+  connector:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /app/data
+      MAPPING_FILE: /app/mapping.csv
+    volumes:
+      - connector-data:/app/data
+      # Edit mapping.csv on the host: the connector re-reads it when it changes.
+      - ./mapping.csv:/app/mapping.csv:ro
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    command: caddy reverse-proxy --from ${CONNECTOR_DOMAIN:-sync.helenajoy.example} --to connector:3000
+    volumes:
+      - caddy-data:/data
+    depends_on:
+      - connector
+
+volumes:
+  connector-data:
+  caddy-data:

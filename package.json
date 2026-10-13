@@ -1,0 +1,24 @@
+{
+  "name": "helena-jewely-connector",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Connecteur Shopify <-> ERP Jewely (HBJO) pour Helena Joy",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/index.ts",
+    "dev": "node --watch --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/index.ts",
+    "discover": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/cli/discover.ts",
+    "build-mapping": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/cli/build-mapping.ts",
+    "setup:webhooks": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/cli/setup-webhooks.ts",
+    "sync": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/cli/sync.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.8.3"
+  }
+}

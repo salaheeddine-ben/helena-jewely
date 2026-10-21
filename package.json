@@ -13,6 +13,7 @@
     "discover": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/cli/discover.ts",
     "build-mapping": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/cli/build-mapping.ts",
     "setup:webhooks": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/cli/setup-webhooks.ts",
+    "test-order": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/cli/test-order.ts",
     "sync": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/cli/sync.ts",
     "typecheck": "tsc --noEmit",
     "test": "node --disable-warning=ExperimentalWarning --test test/*.test.ts"

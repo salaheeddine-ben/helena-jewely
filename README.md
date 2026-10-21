@@ -35,6 +35,7 @@ docker compose exec connector node --disable-warning=ExperimentalWarning src/cli
 | `npm run build-mapping` | Read-only on both sides: rebuilds `mapping.csv`, keeping the rows marked `manuel` |
 | `npm run setup:webhooks` | Registers the 3 Shopify webhooks on `PUBLIC_URL` (+ the 4 Jewely webhooks when `SYNC_PRODUCTS=true`), idempotent |
 | `npm run sync -- <ref>` / `-- --all` | Forced sync of one product / of the whole web catalogue (`SYNC_PRODUCTS=true` only) |
+| `npm run test-order -- [--ref <ref>] [--write]` | One fake paid order through the real import, Jewely only (no Shopify). Dry run unless `--write`; point `JEWELY_BASE_URL` at the sandbox |
 | `npm test` | Unit and flow tests (fake Jewely and Shopify clients) |
 | `npm run typecheck` | `tsc --noEmit` |
 
